@@ -1,0 +1,36 @@
+﻿@model SalesProject.Models.CategoryVM
+@{
+    ViewBag.Title = "AddCategoryData";
+
+}
+
+<center>
+    <h1 class="text-info"style="margin-bottom:50px;">Add Category Data</h1>
+</center>
+
+<form asp-controller="Category" asp-action="AddCategoryData" method="post" enctype="multipart/form-data" class="form-group">
+
+    <label asp-for="CategoryName">Category Name</label>
+    <input type="text" asp-for="CategoryName" class="form-control" />
+    <span asp-validation-for="CategoryName" class="text-danger"></span>
+    <br />
+
+    <div class="custom-file">
+       
+
+        <input type="file" asp-for="PhotoUrl" class="custom-file-input">
+        <label class="custom-file-label" asp-for="PhotoUrl">Choose Photo</label>
+    </div>
+    <br />
+    <br />
+    <br />
+
+    <center>
+        <input type="submit" value="Save" class="btn btn-info" />
+        <a asp-controller="Category" asp-action="Index" class="btn btn-dark">Back</a>
+    </center>
+
+</form>
+<script src="~/src/scripts/jquery.min.js"></script>
+<script src="~/src/scripts/jquery-validate/jquery.validate.min.js"></script>
+<script src="~/src/scripts/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>

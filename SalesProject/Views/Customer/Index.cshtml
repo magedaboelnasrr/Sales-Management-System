@@ -1,0 +1,82 @@
+﻿@model IQueryable<SalesProject.Models.CustomersVM>
+@{
+    ViewData["Title"] = "Index";
+
+}
+
+<center>
+    <a asp-controller="Customer" asp-action="AddCustomerData" class="btn btn-info">New Customer</a>
+</center>
+
+<br />
+
+
+
+
+
+<div class="container-fluid">
+    <div class="row clearfix">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
+            <div class="card">
+
+                <div class="body pt-3 pb-4">
+                    <div class="table-responsive">
+                        <table class="table table-bordered table-striped table-hover js-basic-example dataTable">
+                            <thead>
+                                <tr>
+                                    <th>Customer Name</th>
+                                    <th>Customer Number</th>
+                                    <th>Customer Email</th>
+                                    <th>Edit</th>
+                                    <th>Delete</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model)
+                                {
+                                    <tr>
+                                        <td>@item.CustomerName</td>
+                                        <td>@item.PhoneNumber</td>
+                                        <td>@item.Email</td>
+                                        <td><a asp-controller="Customer" asp-action="EditCustomerData" asp-route-id="@item.Id" class="btn btn-success">Edit</a></td>
+                                        <td><a asp-controller="Customer" asp-action="DeleteCustomerData" asp-route-id="@item.Id" class="btn btn-danger">Delete</a></td>
+                                    </tr>
+                                }
+                            </tbody>
+
+
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+@section datatable{
+
+    <script>
+
+        $(function () {
+            $('.js-basic-example').DataTable({
+                responsive: true,
+                paging: true,
+                pageLength: 3,
+                bSort: true,
+                bFilter: true,
+                //bLengthChange: false,
+                //bInfo: false,
+                lengthMenu: [[3, 5, 10, 25, 50, -1], [3, 5, 10, 25, 50, "All"]],
+
+            });
+        });
+    </script>
+}
+
+
+
+
+
+

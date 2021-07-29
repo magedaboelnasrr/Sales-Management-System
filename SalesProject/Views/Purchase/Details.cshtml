@@ -1,0 +1,62 @@
+﻿@model IEnumerable<SalesProject.Models.PurchasesVM>
+@{
+    ViewData["Title"] = "Details";
+
+}
+
+<center>
+    <h1 class="text-info jumbotron mt-3">Details</h1>
+</center>
+
+<div class="container">
+    <div class="row">
+
+        <div class="col">
+            <ol>
+                <li>Purchase Name</li>
+                <li>Category Name</li>
+                <li>Supplier Name</li>
+                <li>Purchase Details</li>
+                <li>Purchasing 1 Piece</li>
+                <li>Selling 1 Piece</li>
+                <li>Purchase Quantity</li>
+                <li>Purchases Total Price</li>
+                <li>Sales Total Price</li>
+                <li>Total Profit</li>
+            </ol>
+        </div>
+        <div class="col">
+            @foreach (var item in Model)
+            {
+
+                <center>
+                    <ol>
+                        <li>@item.PurchaseName</li>
+                        <li>@item.CategoryName</li>
+                        <li>@item.SupplierName</li>
+                        <li>@item.PurchaseDetails</li>
+                        <li>@item.PurchasingPrice</li>
+                        <li>@item.SellingPrice</li>
+                        <li>@item.PurchaseQuantity</li>
+                        <li>@item.PurchasesTotalPrice</li>
+                        <li>@item.SalesTotalPrice</li>
+                        <li>@item.TotalProfit</li>
+                    </ol>
+                </center>
+
+            }
+        </div>
+
+    </div>
+    <center class="pt-3">
+        <a asp-controller="Purchase" asp-action="Index" class="btn btn-dark">Back</a>
+    </center>
+</div>
+
+
+
+
+
+
+
+

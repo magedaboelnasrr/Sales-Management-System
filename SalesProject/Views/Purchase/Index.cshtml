@@ -1,0 +1,98 @@
+﻿@model IEnumerable<SalesProject.Models.PurchasesVM>
+@{
+    ViewBag.Title = "Index";
+
+}
+
+<center>
+    <a asp-controller="Purchase" asp-action="AddPurchasesData" class="btn btn-info">New Purchase</a>
+</center>
+
+<br />
+
+
+
+
+
+<div class="container-fluid flex">
+    <div class="row clearfix">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
+            <div class="card">
+
+                <div class="body pt-3 pb-4">
+                    <div class="table-responsive">
+                        <table class="table table-bordered table-striped table-hover js-basic-example dataTable no-footer dtr-inline table-responsive">
+                            <thead>
+                                <tr>
+                                    <th>Purchase Name</th>
+                                    <th>Category Name</th>
+                                    @*<th>Supplier Name</th>*@
+                                    <th>Purchase Details</th>
+                                    <th>PurchasingPrice</th>
+                                    <th>SellingPrice</th>
+                                    @*<th>PurchaseQuantity</th>*@
+                                    @*<th>PurchasesTotalPrice</th>
+                                    <th>SalesTotalPrice</th>
+                                    <th>TotalProfit</th>*@
+                                    <th>Edit</th>
+                                    <th>Delete</th>
+                                    <th>Details</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model)
+                                {
+                                    <tr>
+                                        <td>@item.PurchaseName</td>
+                                        <td>@item.CategoryName</td>
+                                        @*<td>@item.SupplierId</td>*@
+                                        <td>@item.PurchaseDetails</td>
+                                        <td>@item.PurchasingPrice</td>
+                                        <td>@item.SellingPrice</td>
+                                        @*<td>@item.PurchaseQuantity</td>*@
+                                        @*<td>@item.PurchasesTotalPrice</td>
+                                        <td>@item.SalesTotalPrice</td>
+                                        <td>@item.TotalProfit</td>*@
+                                        <td><a asp-controller="Purchase" asp-action="EditPurchaseData" asp-route-id="@item.Id" class="btn btn-success">Edit</a></td>
+                                        <td><a asp-controller="Purchase" asp-action="DeletePurchaseData" asp-route-id="@item.Id" class="btn btn-danger">Delete</a></td>
+                                        <td><a asp-controller="Purchase"asp-action="Details"asp-route-id="@item.Id"class="btn btn-dark">Details</a></td>
+                                    </tr>
+                                }
+                            </tbody>
+
+
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+@section datatable{
+
+    <script>
+
+        $(function () {
+            $('.js-basic-example').DataTable({
+                responsive: true,
+                paging: true,
+                pageLength: 3,
+                bSort: true,
+                bFilter: true,
+                //bLengthChange: false,
+                //bInfo: false,
+                lengthMenu: [[3, 5, 10, 25, 50, -1], [3, 5, 10, 25, 50, "All"]],
+
+            });
+        });
+    </script>
+}
+
+
+
+
+
+

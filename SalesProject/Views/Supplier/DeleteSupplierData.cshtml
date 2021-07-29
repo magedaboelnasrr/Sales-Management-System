@@ -1,0 +1,35 @@
+﻿@model SalesProject.Models.SupplierVM
+@{
+    ViewBag.Title = "DeleteSupplierData";
+
+}
+
+<center>
+    <h1 class="text-info" style="margin-bottom:50px;">Delete Supplier Data</h1>
+</center>
+
+<form asp-controller="Supplier" asp-action="DeleteSupplierData" method="post" class="form-group">
+
+    <label asp-for="SupplierName">Supplier Name</label>
+    <input type="text" asp-for="SupplierName" class="form-control" disabled />
+    <br />
+
+    <label asp-for="PhoneNumber">Phone Number</label>
+    <input type="text" asp-for="PhoneNumber" class="form-control" disabled />
+    <br />
+
+    <label asp-for="Email">Email</label>
+    <input type="text" asp-for="Email" class="form-control" disabled/>
+  
+    <br />
+
+    <br />
+    <br />
+    <br />
+
+    <center>
+        <input type="submit" value="Delete" class="btn btn-danger" />
+        <a asp-controller="Supplier" asp-action="Index" class="btn btn-dark">Back</a>
+    </center>
+
+</form>

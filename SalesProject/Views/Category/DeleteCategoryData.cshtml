@@ -1,0 +1,31 @@
+﻿@model SalesProject.Models.CategoryVM
+@{
+    ViewBag.Title = "DeleteCategoryData";
+
+}
+
+<center>
+    <h1 class="text-info" style="margin-bottom:50px;">Delete Category Data</h1>
+</center>
+
+<form asp-controller="Category" asp-action="DeleteCategoryData" method="post" enctype="multipart/form-data" class="form-group">
+
+    <label asp-for="CategoryName">Category Name</label>
+    <input type="text" asp-for="CategoryName" class="form-control" disabled />
+   
+    <br />
+
+    <div class="custom-file">
+        <input type="file" asp-for="PhotoUrl" class="custom-file-input"disabled/>
+        <label class="custom-file-label" asp-for="PhotoUrl">Choose Photo</label>
+    </div>
+    <br />
+    <br />
+    <br />
+
+    <center>
+        <input type="submit" value="Delete" class="btn btn-danger" />
+        <a asp-controller="Category" asp-action="Index" class="btn btn-dark">Back</a>
+    </center>
+
+</form>

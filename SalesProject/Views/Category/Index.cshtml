@@ -1,0 +1,59 @@
+﻿@model IEnumerable<SalesProject.Models.CategoryVM>
+@{
+    ViewBag.Title = "Index";
+
+}
+
+
+<div class="container"style="margin-bottom:65px;">
+    <div class="row">
+
+
+        <div class="col-2">
+            <a asp-controller="Category" asp-action="AddCategoryData" class="btn btn-info">Add Category</a>
+        </div>
+
+
+        <div class="header-search col-10">
+            <form asp-controller="Category"asp-action="search"method="post">
+                <div class="form-group mb-0">
+                    @*<i class="dw dw-search2 search-icon"></i>*@
+                    <input type="text" class="form-control search-input" placeholder="Search Here"name="name">
+
+                </div>
+            </form>
+        </div>
+
+
+    </div>
+</div>
+
+<div class="row">
+
+    @foreach (var item in Model)
+    {
+
+        <div  class="col-lg-3 mt-3">
+            <div class="card card-box">
+
+                <img class="card-img-top" src="~/Files/Photos/@item.PhotoName" style="width:200px;height:200px;">
+
+                <div class="card-body">
+
+                    <center>
+                        <h5 class="card-title weight-500">@item.CategoryName</h5>
+                    </center>
+                    <br />
+                    <a asp-controller="Category" asp-action="EditCategoryData" asp-route-id="@item.Id" class="btn btn-dark">Edit</a>
+                    <a asp-controller="Category" asp-action="DeleteCategoryData" asp-route-id="@item.Id" class="btn btn-danger">Delete</a>
+                </div>
+
+            </div>
+        </div>
+
+    }
+
+</div>
+
+
+

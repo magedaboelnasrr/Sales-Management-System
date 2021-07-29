@@ -1,0 +1,40 @@
+﻿@model SalesProject.Models.CustomersVM
+@{
+    ViewBag.Title = "EditCustomerData";
+
+}
+
+<center>
+    <h1 class="text-info" style="margin-bottom:50px;">Edit Customer Data</h1>
+</center>
+
+<form asp-controller="Customer" asp-action="EditCustomerData" method="post" class="form-group">
+
+    <label asp-for="CustomerName">Supplier Name</label>
+    <input type="text" asp-for="CustomerName" class="form-control" />
+    <span asp-validation-for="CustomerName" class="text-danger"></span>
+    <br />
+
+    <label asp-for="PhoneNumber">Phone Number</label>
+    <input type="text" asp-for="PhoneNumber" class="form-control" />
+    <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+    <br />
+
+    <label asp-for="Email">Email</label>
+    <input type="text" asp-for="Email" class="form-control" />
+    <span asp-validation-for="Email" class="text-danger"></span>
+    <br />
+
+    <br />
+    <br />
+    <br />
+
+    <center>
+        <input type="submit" value="Edit" class="btn btn-info" />
+        <a asp-controller="Customer" asp-action="Index" class="btn btn-dark">Back</a>
+    </center>
+
+</form>
+<script src="~/src/scripts/jquery.min.js"></script>
+<script src="~/src/scripts/jquery-validate/jquery.validate.min.js"></script>
+<script src="~/src/scripts/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>

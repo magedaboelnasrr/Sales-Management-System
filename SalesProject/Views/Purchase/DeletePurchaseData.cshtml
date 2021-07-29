@@ -1,0 +1,121 @@
+﻿@model SalesProject.Models.PurchasesVM
+@{
+    ViewBag.Title = "DeletePurchaseData";
+
+}
+
+
+
+<center>
+    <h1 class="text-info" style="margin-bottom:50px;">Edit Purchase Data</h1>
+</center>
+
+
+
+<form asp-controller="Purchase" asp-action="DeletePurchaseData" method="post" class="form-group">
+
+    <div class="container">
+
+
+        <div class="row">
+            <div class="col-lg-6">
+                <label asp-for="PurchaseName">Purchase Name</label>
+                <input type="text" asp-for="PurchaseName" class="form-control" disabled />
+                
+                <br />
+            </div>
+            <div class="col-6">
+                <label asp-for="PurchasesTotalPrice" id="buytl">Purchases Total Price</label>
+                <h3 id="buyt">@*@ViewBag.tbuy*@</h3>
+                @*<input type="text" asp-for="PurchasesTotalPrice" class="form-control" />*@
+               
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-6">
+                <label asp-for="CategoryId">Category Name</label>
+                <select asp-for="CategoryId" asp-items="@(SelectList)ViewBag.CategoryId" class="form-control" disabled>
+                    <option>Choose</option>
+                </select>
+
+                <br />
+            </div>
+            <div class="col-6">
+                <label asp-for="SalesTotalPrice" id="selltl">Sales Total Price</label>
+                <h3 id="sellt">@*@ViewBag.tsell*@</h3>
+                @*<input type="number" asp-for="SalesTotalPrice"class="form-control" />*@
+                
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-6">
+                <label asp-for="SupplierId">Supplier Name</label>
+                <select asp-for="SupplierId" asp-items="@(SelectList)ViewBag.SupplierId" class="form-control" disabled>
+                    <option>Choose</option>
+                </select>
+
+                <br />
+            </div>
+            <div class="col-3">
+                <label asp-for="TotalProfit" id="profitl">Total Profit</label>
+                <h3 id="profit">@*@ViewBag.profit*@</h3>
+                <br />
+                @*<input type="text" asp-for="TotalProfit" class="form-control" />*@
+                
+
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-6">
+                <label asp-for="PurchaseDetails">Purchase Details</label>
+                <textarea asp-for="PurchaseDetails" class="form-control"disabled>Purchase Details</textarea>
+                
+                <br />
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-6">
+                <label asp-for="PurchasingPrice">Purchasing Price</label>
+                <input type="text" asp-for="PurchasingPrice" class="form-control" id="buy" disabled/>
+                
+                <br />
+            </div>
+            <div class="col-6">
+                <label asp-for="SellingPrice">Selling Price</label>
+                <input type="text" asp-for="SellingPrice" class="form-control" id="sell" disabled />
+                
+                <br />
+            </div>
+            <div class="col-12">
+                <label asp-for="PurchaseQuantity">Quantity</label>
+                <input type="text" asp-for="PurchaseQuantity" class="form-control" id="quantity" disabled/>
+               
+                <br />
+            </div>
+        </div>
+    </div>
+    <center>
+        <input type="submit" value="Delete" class="btn btn-danger" />
+        <a asp-controller="Purchase" asp-action="Index" class="btn btn-dark">Back</a>
+    </center>
+</form>
+
+
+<script>
+    $(function () {
+
+        $("#buy, #sell, #quantity, #profit, #buytl, #selltl, #profitl").on("keydown keyup mousemove change", calculate);
+        function calculate() {
+
+            var buy = $("#buy").val();
+            var quantity = $("#quantity").val();
+            var sell = $("#sell").val();
+            var totalbuy = buy * quantity;
+            var totalsell = sell * quantity;
+            var profit = totalsell - totalbuy;
+            $("#buyt").text(totalbuy);
+            $("#sellt").text(totalsell);
+            $("#profit").text(profit);
+        }
+    });
+</script>

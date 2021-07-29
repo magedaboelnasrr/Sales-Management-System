@@ -1,0 +1,112 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+
+}
+
+<div class="title pb-20">
+    <center>
+        <h2 class="h3 mb-0 text-info">System Overview </h2>
+    </center>
+</div>
+
+<div class="row">
+
+    <div class="col-lg-3 col-md-6 col-sm-12 mb-30">
+        <div class="card card-box">
+            <img class="card-img-top" src="vendors/images/img2.jpg" alt="Card image cap">
+            <div class="card-body">
+                <center>
+                    <h5 class="card-title weight-500 text-secondary">Category</h5>
+                    <p class="card-text"></p>
+                    <a asp-controller="Category"asp-action="Index" class="btn btn-primary">Go</a>
+                </center>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-3 col-md-6 col-sm-12 mb-30">
+        <div class="card card-box">
+            <img class="card-img-top" src="vendors/images/img2.jpg" alt="Card image cap">
+            <div class="card-body">
+                <center>
+                    <h5 class="card-title weight-500 text-secondary">Suppliers</h5>
+                    <p class="card-text"></p>
+                    <a asp-controller="Supplier"asp-action="Index" class="btn btn-primary">Go</a>
+                </center>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-3 col-md-6 col-sm-12 mb-30">
+        <div class="card card-box">
+            <img class="card-img-top" src="vendors/images/img2.jpg" alt="Card image cap">
+            <div class="card-body">
+                <center>
+                    <h5 class="card-title weight-500 text-secondary">Sales</h5>
+                    <p class="card-text"></p>
+                    <a href="#" class="btn btn-primary">Go</a>
+                </center>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-3 col-md-6 col-sm-12 mb-30">
+        <div class="card card-box">
+            <img class="card-img-top" src="vendors/images/img2.jpg" alt="Card image cap">
+            <div class="card-body">
+                <center>
+                    <h5 class="card-title weight-500 text-secondary">Customers</h5>
+                    <p class="card-text"></p>
+                    <a href="#" class="btn btn-primary">Go</a>
+                </center>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-3 col-md-6 col-sm-12 mb-30">
+        <div class="card card-box">
+            <img class="card-img-top" src="vendors/images/img2.jpg" alt="Card image cap">
+            <div class="card-body">
+                <center>
+                    <h5 class="card-title weight-500 text-secondary">Purchases</h5>
+                    <p class="card-text"></p>
+                    <a href="#" class="btn btn-primary">Go</a>
+                </center>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-3 col-md-6 col-sm-12 mb-30">
+        <div class="card card-box">
+            <img class="card-img-top" src="vendors/images/img2.jpg" alt="Card image cap">
+            <div class="card-body">
+                <center>
+                    <h5 class="card-title weight-500 text-secondary">Reports</h5>
+                    <p class="card-text"></p>
+                    <a href="#" class="btn btn-primary">Go</a>
+                </center>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@section MySection{
+
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <a asp-controller="" asp-action="" class="btn btn-outline-primary">Sales process</a>
+            </div>
+            <div class="col">
+                <a asp-controller="" asp-action="" class="btn btn-outline-dark">Add Customer</a>
+            </div>
+            <div class="col">
+                <a asp-controller="" asp-action="" class="btn btn-outline-danger">Shopping</a>
+            </div>
+            <div class="col">
+                <a asp-controller="Supplier" asp-action="AddSupplierData" class="btn btn-outline-info">Add Supplier</a>
+            </div>
+            <div class="col">
+                <a asp-controller="Category" asp-action="AddCategoryData" class="btn btn-outline-success">Add Category</a>
+            </div>
+        </div>
+    </div>
+
+}
